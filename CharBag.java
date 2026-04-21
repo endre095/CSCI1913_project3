@@ -1,3 +1,8 @@
+/*
+Author: Andrew Endres
+Date: 4/21/26
+*/
+
 public class CharBag {
     
     private int[] bag;

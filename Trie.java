@@ -17,18 +17,19 @@ public class Trie<T> {
         TrieNode<T> returnTrie = root;
         
         for (int i = 0; i < str.length(); i++) {
-            char currChar = str.charAt(i);
+            char currChar = str.charAt(i); //gets character at index in string
             if (returnTrie == null) {
-                return null;
+                return null; //if the current node is null, return null
             }
-            returnTrie = returnTrie.getChild(currChar);
+            returnTrie = returnTrie.getChild(currChar); // if not null, sets the new trie to the child of the current trie
+                                                        // associated w/ that char in the sequence of chars
         }
         return returnTrie;
     }
     /*
      * gets a node which has the strings value by searching through the starting
      * node, and reassigning the current node to the next node in the sequence of
-     * nodes for that specific string, then returns the final node 
+     * nodes for that specific string of chars, then returns the final node 
      */
 
     public T get(String str) {

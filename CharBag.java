@@ -22,9 +22,9 @@ public class CharBag {
         if (Character.isUpperCase(c)) { //converst the char to lowercase if not already
             c = Character.toLowerCase(c);
         }
-        int index = c - 'a'; //normalizes the characters asci value into its array index
+        int index = c - 'a'; //normalizes the characters asci value into its array index (num - 97 = normalized_num)
         if (index >= 26 || index < 0) {
-            return 26; //returns the '.' character
+            return 26; //returns the '.' character's index
         }
         return index; //else returns the characters index thats within the array's bounds
     }
@@ -71,7 +71,7 @@ public class CharBag {
     public  String toString() {
         String returnStr = "CharBag{";
         for (int i = 0; i < bag.length; i++) {
-            char currChar = (char) (i + 97);
+            char currChar = (char) (i + 97); //casts from integer to char, this is a-z from ascii to char
             if (i == 26) {
                 returnStr += (LetterSample.STOP + ":" + bag[i]);
             }
@@ -90,7 +90,7 @@ public class CharBag {
             return LetterSample.STOP; // or '.'
         }
 
-        int count = (int) (Math.random() * getSize()); // random number [0, size)
+        int count = (int) (Math.random() * getSize()); //random number [0, size)
 
         for (int i = 0; i < bag.length; i++) {
             count -= bag[i];
@@ -101,7 +101,7 @@ public class CharBag {
             }
         }
 
-        return LetterSample.STOP; // fallback (should never happen)
+        return LetterSample.STOP; //if it somehow breaks
     }
     /*
  * if there were never any changes made to the array, it returns the stop char,

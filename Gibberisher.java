@@ -15,13 +15,22 @@ public class Gibberisher {
     }
 
     public void train(String[] strings) {
-        for (int i = 0; i < strings.length; i++) {
-            LetterSample[] strArray = LetterSample.toSamples(strings[i], segLength);
-            for (int j = 0; j < strArray.length; j++) {
-                String currStr = strArray[j].getSegment();
-                TrieNode<CharBag> 
+        for (String s : strings) { //loops through all strings in the string array
+            LetterSample[] samples = LetterSample.toSamples(s, segLength);// create a letter sample array of letter samples for the string
+            for (LetterSample sample : samples) { //loops through the letter sample array
+                String string = sample.getSegment(); //gets the string from that letter sample
+            
+                }
             }
-        }
+            }
+        
+    
+
+    public int getSampleCount() {
+        return samplesProcessed;
     }
+
+    public String generate(){return "";};
+
 
 }

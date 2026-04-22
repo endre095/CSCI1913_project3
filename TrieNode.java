@@ -27,8 +27,8 @@ public class TrieNode<T> {
         if (Character.isUpperCase(letter)) { //if character is uppercase return null
             return null;
         }
-        int index = letter - 'a'; //get letters index in array
-        if (links[index] == null) { //if it is nullat index, make  new trienode
+        int index = letter - 'a'; //get letters index in array, similar to CharBag's but opposite result, char to ascii
+        if (links[index] == null) { //if it is null at index, make  new trienode
             links[index] = new TrieNode<T>();
         }
         return links[index]; //return trienode at index
@@ -41,13 +41,14 @@ public class TrieNode<T> {
 
     
     public int getTreeSize() {
-        int total = 1;
+        int total = 1; 
         for (TrieNode<T> n : links) {
             if (n != null) {
                 total += n.getTreeSize();
             }
         }
-        return total;
+        System.out.println("adding: " + total);
+        return total; //every node increases count by 1
     }
     /*
      * gets the size of the tree recursively by calling the function on each node in

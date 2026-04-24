@@ -9,7 +9,7 @@ public class TrieNode<T> {
 
     public TrieNode() {
         data = null;
-        links = (TrieNode<T>[]) new TrieNode[26];
+        links = (TrieNode<T>[]) new TrieNode[26]; 
     }
     /*
      * creates the trienode object with its array and data values set to null
@@ -47,7 +47,7 @@ public class TrieNode<T> {
                 total += n.getTreeSize();
             }
         }
-        System.out.println("adding: " + total);
+        //System.out.println("adding: " + total);
         return total; //every node increases count by 1
     }
     /*

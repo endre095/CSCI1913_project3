@@ -16,18 +16,18 @@ public class TrieNode<T> {
      */
        
     public T getData() {
-        return data;
+        return data; //returns the T-type object which holds the nodes data
     }
 
     public void setData(T data) {
-        this.data = data;
+        this.data = data; //sets the T-type data to whatever the input is
     }
 
     public TrieNode<T> getChild(char letter) {
         if (Character.isUpperCase(letter)) { //if character is uppercase return null
             return null;
         }
-        int index = letter - 'a'; //get letters index in array, similar to CharBag's but opposite result, char to ascii
+        int index = letter - 'a'; //get letters index in array, similar to CharBag's but opposite result, char to int
         if (links[index] == null) { //if it is null at index, make  new trienode
             links[index] = new TrieNode<T>();
         }

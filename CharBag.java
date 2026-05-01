@@ -60,18 +60,18 @@ public class CharBag {
 
 
     public int getCount(char c) {
-        int index = getCharIndex(c);
-        return bag[index];
+        int index = getCharIndex(c); //gets index
+        return bag[index]; //returns the value at index in the bag
     }
     
     public int getSize() {
-        return netChanges;
+        return netChanges; //returns the variable which holds the net number of changes made to the bag 
     }
 
     public  String toString() {
         String returnStr = "CharBag{";
         for (int i = 0; i < bag.length; i++) {
-            char currChar = (char) (i + 97); //casts from integer to char, this is a-z from ascii to char
+            char currChar = (char) (i + 97); //casts from integer to char, this is a-z from ascii to charm the tip in canvas was nice
             if (i == 26) {
                 returnStr += (LetterSample.STOP + ":" + bag[i]);
             }
@@ -105,9 +105,9 @@ public class CharBag {
     }
     /*
  * if there were never any changes made to the array, it returns the stop char,
- * then it finds a random number from 0 to the netChanges-1, and loops through
+ * else it finds a random number from 0 to the netChanges-1, and loops through
  * the bag subtracting the values in each arary slot from count, if count is < 0
- * it finds a value to return, this makes it so that there is a weight based on
+ * it returns the char which made it go below zero, this makes it so that there is a weight based on
  * how many times a char shows up, if it shows up more it subtracts more from
  * the count and therefor is more likely to make the count < 0, which will pick
  * the char

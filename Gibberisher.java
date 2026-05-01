@@ -14,7 +14,7 @@ public class Gibberisher {
         model = new Trie<CharBag>();
     }
     /*
-     * creates the gi
+     * creates the gibberisher with a specified segment length for the words created
      */
 
     public void train(String[] strings) {
@@ -23,17 +23,19 @@ public class Gibberisher {
                                                                           // samples for the string
             for (LetterSample sample : samples) { // loops through the letter sample array
                 String str = sample.getSegment(); // gets the string from that letter sample
-                char next = sample.getNextLetter();
-                CharBag cb = model.get(str);
+                char next = sample.getNextLetter(); 
+                CharBag cb = model.get(str); //get the charbag at that string from the model
 
                 if (cb == null) {
                     cb = new CharBag();
-                    model.put(str, cb);
+                    model.put(str, cb); //if its null, make cb a new charbag and then puts it in the model
                 }
-                if (cb.getCharIndex(LetterSample.STOP) == 26) {
+               /*  if (cb.getCharIndex(LetterSample.STOP) == 26) {  
                     samplesProcessed++;
-                }
-                cb.add(next);
+                }*/
+                cb.add(next); //add the next char in the sequence to the charbag
+                samplesProcessed++;
+
             }
         }
     }
@@ -71,7 +73,7 @@ public class Gibberisher {
             } else {
                 master.append(append);
             }
-        } while (!stopPleaseThanks);
+        } while (!stopPleaseThanks); 
 
         return master.toString();
     }
@@ -81,6 +83,10 @@ public class Gibberisher {
      * the look up string should be for the following character, then checks if the
      * character should stop the loop, if not goes appends the master string and
      * goes again
+     * 
+     * p.s. used a do-while loop b/c there was issues with the stop character
+     * being attatched at the end of every string, reversing the order of the check
+     * prevented the stop char from being added
      */
 
 }
